@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PoolMeasuring", "PoolMeasuring.vcxproj", "{BAED081A-F085-4D03-A9A5-74077D2061E6}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "googletest", "..\googletest\googletest.vcxproj", "{0EB67C8D-A2EE-4640-B04F-3E6EB76054FD}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "unittest_PoolMeasuring", "unittest_PoolMeasuring\unittest_PoolMeasuring.vcxproj", "{1D73519D-81FF-4E11-91CE-A9EB718D5A9F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BAED081A-F085-4D03-A9A5-74077D2061E6}.Debug|Win32.ActiveCfg = Debug|Win32
+		{BAED081A-F085-4D03-A9A5-74077D2061E6}.Debug|Win32.Build.0 = Debug|Win32
+		{BAED081A-F085-4D03-A9A5-74077D2061E6}.Release|Win32.ActiveCfg = Release|Win32
+		{BAED081A-F085-4D03-A9A5-74077D2061E6}.Release|Win32.Build.0 = Release|Win32
+		{0EB67C8D-A2EE-4640-B04F-3E6EB76054FD}.Debug|Win32.ActiveCfg = Debug|Win32
+		{0EB67C8D-A2EE-4640-B04F-3E6EB76054FD}.Debug|Win32.Build.0 = Debug|Win32
+		{0EB67C8D-A2EE-4640-B04F-3E6EB76054FD}.Release|Win32.ActiveCfg = Release|Win32
+		{0EB67C8D-A2EE-4640-B04F-3E6EB76054FD}.Release|Win32.Build.0 = Release|Win32
+		{1D73519D-81FF-4E11-91CE-A9EB718D5A9F}.Debug|Win32.ActiveCfg = Debug|Win32
+		{1D73519D-81FF-4E11-91CE-A9EB718D5A9F}.Debug|Win32.Build.0 = Debug|Win32
+		{1D73519D-81FF-4E11-91CE-A9EB718D5A9F}.Release|Win32.ActiveCfg = Release|Win32
+		{1D73519D-81FF-4E11-91CE-A9EB718D5A9F}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
