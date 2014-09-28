@@ -1,33 +1,17 @@
 /*
- *  NAMES GO HERE
  *  Gwenn Flores
  *  Samer Kamel
  *  Frank DiCola
  *
  *  SSW 567
  *  Prof. Ardis
- *  Project Assignment 03
+ *  Project Assignment 04
  *
- *  GOAL:   Create a program that reads sample test data
- *          and evaluates each line it reads.
+ *  GOAL:   Create a program that can calculate the amoun of time
+ *			required to paint the bottom and sides of the pool.
  *
- *		I have created my own set of "rules" for the data:
- *			a.) Length, width, shallow end, and deep end must be positive integers
- *			b.) Length, width, shallow end, and deep end must not contain non-numeric characters
- *			c.) Length must be greater than width.
- *			d.) Length is always greater than an empty value for width.
- *			e.) Shallow end must be smaller than deep end.
- *			f.) Shallow end is always less than an empty value for depth.
- *			g.) The customer's name does not have to be a "name" - it can be whatever garbage is
- *				left after the numeric data has been recorded.
- *			f.) Values that do not fit this criteria are displayed as "n/a" for "not available" to
- *				indicate that they are missing and must be acquired from the customer.
- *
- *
- *
- *
- *
- *
+ *			a.) The program should compile into an executable file
+ *			b.) The program should generate an output file
  *
  */
 
@@ -43,6 +27,10 @@ struct pools_t
 	string shallowEnd;
 	string deepEnd;
 	string customer;
+	double area;
+	int days;
+	int hours;
+	int minutes;
 };
 
 string FindValue( int* ptr, string s )
@@ -79,23 +67,24 @@ int main(int argc, char** argv)
 	int* linePosPTR;
 	int lineLength;
 	int j = 1;
+	int workerRate = 1200;
 	pools_t pool;
 	
-	// Frank DiCola
-    cout << "Pool Measuring -- A Work In Progress" << endl;
-    cout << "               by Frank DiCola" << endl;
-    cout << endl << endl;
 
 	// Find a file
     ifstream inputTextFile;
     inputTextFile.open ("input.txt");
 
+	// Make an output file
+	ofstream outputFile;
+	outputFile.open ("output.txt");
+	outputFile << "OUTPUT of POOLMEASURING PROGRAM" << endl << endl;
+
     // Loop through it until we reach the end
-    cout << " = = = File Start = = = " << endl;
     while(!inputTextFile.eof())
     {
 		getline(inputTextFile, lineToPrint);
-		cout << "Entry " << j << ":   " << lineToPrint << endl;
+		// cout << "Entry " << j << ":   " << lineToPrint << endl;
 		
 		linePos = 0;
 		linePosPTR = &linePos;
@@ -109,6 +98,10 @@ int main(int argc, char** argv)
 		pool.shallowEnd = "n/a";
 		pool.deepEnd = "n/a";
 		pool.customer = "n/a";
+		pool.area = 0;
+		pool.days = 0;
+		pool.hours = 0;
+		pool.minutes = 0;
 		
 		// LENGTH
 		tempLength = FindValue(linePosPTR, lineToPrint);
@@ -156,23 +149,65 @@ int main(int argc, char** argv)
 		if (pool.customer.empty())
 			pool.customer = "n/a";
 
+		// Calculate the Pool Area if we have complete information
+		if ( pool.length != "n/a" && pool.width != "n/a" && pool.shallowEnd != "n/a" && pool.deepEnd != "n/a" )
+		{
+			double shallowArea;
+			double deepArea;
+			double sidesArea;
+			double bottomArea;
+			double difference = stod(pool.deepEnd) - stod(pool.shallowEnd);
+
+			shallowArea = stod(pool.width) * stod(pool.shallowEnd);				// cout << "Shallow: " << shallowArea << endl;
+			deepArea = stod(pool.width) * stod(pool.deepEnd);					// cout << "Deep: " << deepArea << endl;
+			sidesArea = stod(pool.length) * stod(pool.shallowEnd);				// cout << "Sides (P1): " << sidesArea << endl;
+			sidesArea = sidesArea + ((difference * stod(pool.length)) / 2);		// cout << "Sides (P2): " << sidesArea << endl;
+			sidesArea *= 2;														// cout << "Sides (P3): " << sidesArea << endl;
+			bottomArea = pow(difference, 2) + pow(stod(pool.length), 2);		// cout << "Bottom (P1): " << bottomArea << endl;
+			bottomArea = stod(pool.width) * sqrt(bottomArea);					// cout << "Bottom (P2): " << bottomArea << endl;
+			pool.area = shallowArea + deepArea + sidesArea + bottomArea;
+		}
+
+		// Calculate the Time if we have an Area already
+		if ( pool.area > 0 )
+		{
+			pool.days = pool.area / workerRate;
+			pool.hours = fmod(pool.area, workerRate);
+			pool.minutes = (fmod(pool.hours, 100.0) / 100) * 60;
+			pool.hours /= 100;
+		}
 		
 		// Print the line
-		cout << 
+		   cout << 
 			"LENGTH: " << pool.length << 
 			" WIDTH: " << pool.width << 
 			" SHALLOW: " << pool.shallowEnd << 
 			" DEEP: " << pool.deepEnd <<
 			" CUSTOMER: " << pool.customer 
-			<< endl << endl;;
+			<< endl;
 
 		j++;
+
+
+		// Program Output
+		outputFile << "CUSTOMER:         " << pool.customer << endl;
+
+		if ( pool.area == 0 )
+			outputFile << "TOTAL POOL AREA:  " << "Unable to compute due to incomplete data" << endl;
+		else
+			outputFile << "TOTAL POOL AREA:  " << fixed << setprecision(2) << pool.area << " feet" << endl;
+
+		if ( pool.days == 0 && pool.hours == 0 && pool.minutes == 0 )
+			outputFile << "TIME REQUIRED:    " << "Unable to compute due to incomplete data" << endl;
+		else
+			outputFile << "TIME REQUIRED:    " << fixed << setprecision(0) << pool.days << " days, " << pool.hours << " hours, and " << pool.minutes << " minutes" << endl;
+		
+		outputFile << "\n\n\n";
     }
 
-    // Close the file
+    // Close the files
     inputTextFile.close();
-    cout << " = = =  File End  = = = " << endl;
-    cout << endl << endl << endl << endl << endl;
+	outputFile.close();
 	
 	// Finally, pause and exit.
 	cout << "Press enter to close this window." << endl;

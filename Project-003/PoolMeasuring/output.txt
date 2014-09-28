@@ -1,0 +1,38 @@
+OUTPUT of POOLMEASURING PROGRAM
+
+CUSTOMER:         Michael Phelps
+TOTAL POOL AREA:  17388.00 feet
+TIME REQUIRED:    14 days, 5 hours, and 52 minutes
+
+
+
+CUSTOMER:         Gabe Newell
+TOTAL POOL AREA:  663.39 feet
+TIME REQUIRED:    0 days, 6 hours, and 37 minutes
+
+
+
+CUSTOMER:         Frank Sinatra
+TOTAL POOL AREA:  693.90 feet
+TIME REQUIRED:    0 days, 6 hours, and 55 minutes
+
+
+
+CUSTOMER:         Barack Obama
+TOTAL POOL AREA:  Unable to compute due to incomplete data
+TIME REQUIRED:    Unable to compute due to incomplete data
+
+
+
+CUSTOMER:         Error Man
+TOTAL POOL AREA:  Unable to compute due to incomplete data
+TIME REQUIRED:    Unable to compute due to incomplete data
+
+
+
+CUSTOMER:         n/a
+TOTAL POOL AREA:  Unable to compute due to incomplete data
+TIME REQUIRED:    Unable to compute due to incomplete data
+
+
+
