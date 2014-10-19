@@ -89,3 +89,25 @@ bool isLessThan( string s1, string s2 )
 
 	return false;
 }
+
+string FindValue( int* ptr, string s )
+{
+	int len = s.length();
+	string ret;
+
+	ret.clear();
+
+	while (*ptr < len)
+	{
+		if (s[*ptr] == 32)
+		{
+			*ptr = *ptr + 1;
+			break;
+		}
+
+		ret = ret + s[*ptr];
+		*ptr = *ptr + 1;
+		}
+
+	return ret;
+}

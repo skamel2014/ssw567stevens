@@ -1,5 +1,5 @@
 #include "gtest/gtest.h"
-#include "PoolHeader.h"
+#include "../PoolHeader.h"
 
 TEST(testWorking, simpleTest)
 {
