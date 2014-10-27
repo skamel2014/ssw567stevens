@@ -47,28 +47,30 @@ pools_t initializePool(pools_t pool) {
 	return pool;
 }
 
-int calculateArea(string l, string w, string s, string d) {
+double calculateArea(string l, string w, string s, string d) {
 
 	double shallowArea;
 	double deepArea;
 	double sidesArea;
 	double bottomArea;
-	double difference = stod(d) - stod(s);
+	double difference = stod(d) - stod(s);					// cout << "Difference: " << difference << endl;
 	double area;
 
-	shallowArea = stod(w) * stod(s);				// cout << "Shallow: " << shallowArea << endl;
-	deepArea = stod(w) * stod(d);					// cout << "Deep: " << deepArea << endl;
-	sidesArea = stod(l) * stod(s);				// cout << "Sides (P1): " << sidesArea << endl;
-	sidesArea = sidesArea + ((difference * stod(l)) / 2);		// cout << "Sides (P2): " << sidesArea << endl;
-	sidesArea *= 2;														// cout << "Sides (P3): " << sidesArea << endl;
+	shallowArea = stod(w) * stod(s);						// cout << "Shallow: " << shallowArea << endl;
+	deepArea = stod(w) * stod(d);							// cout << "Deep: " << deepArea << endl;
+	sidesArea = stod(l) * stod(s);							// cout << "Sides (P1): " << sidesArea << endl;
+	sidesArea = sidesArea + ((difference * stod(l)) / 2);	// cout << "Sides (P2): " << sidesArea << endl;
+	sidesArea *= 2;											// cout << "Sides (P3): " << sidesArea << endl;
 	bottomArea = pow(difference, 2) + pow(stod(l), 2);		// cout << "Bottom (P1): " << bottomArea << endl;
-	bottomArea = stod(w) * sqrt(bottomArea);					// cout << "Bottom (P2): " << bottomArea << endl;
+	bottomArea = stod(w) * sqrt(bottomArea);				// cout << "Bottom (P2): " << bottomArea << endl;
+		// cout << "Area is going to be equal to: " << shallowArea << " + " << deepArea << " + " << sidesArea << " + " << bottomArea << ", ok?" << endl;
 	area = shallowArea + deepArea + sidesArea + bottomArea;
+		// cout << "Area is: " << area << endl;
 
 	return area;
 };
 
-int calculateVolume(string l, string w, string s, string d) {
+double calculateVolume(string l, string w, string s, string d) {
 
 	double v1;
 	double v2;

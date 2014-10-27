@@ -5,19 +5,23 @@
  *
  *  SSW 567
  *  Prof. Ardis
- *  Project Assignment 07
+ *  Project Assignment 08
  *
  *  GOAL:   Create a program that can calculate the amount of time
  *			required to fill the pool.
  *
  *			a.) The program should compile into an executable file
  *			b.) The program should generate an output file
+ *          c.) The program should obtain the day the pool will be completed 
+ *				(starting work on April 1st, 2015 8:00:00 am)
  *
  */
 
 #include "stdafx.h"
 #include "PoolHeader.h"
 #include "PoolFunctions.h"
+#include <ctime>
+
 
 using namespace std;
 
@@ -33,7 +37,14 @@ int main(int argc, char** argv)
 	int* linePosPTR;
 	int lineLength;
 	int j = 1;
+
+	double timeToPaint;
+	double timeToFill;
+	double totalTime;
+
 	pools_t pool;
+
+	
 
 	// Find a file
     ifstream inputTextFile;
@@ -110,45 +121,62 @@ int main(int argc, char** argv)
 			pool.customer = "n/a";
 		}
 
-		outputFile << "CUSTOMER:                   " << pool.customer << endl;
+		outputFile << "CUSTOMER:                      " << pool.customer << endl;
 
 		// Calculate the area and volume if we have complete information
 		if ( pool.length != "n/a" && pool.width != "n/a" && pool.shallowEnd != "n/a" && pool.deepEnd != "n/a" )
 		{
 			pool.area = calculateArea(pool.length, pool.width, pool.shallowEnd, pool.deepEnd);
-			outputFile << "TOTAL POOL AREA:            " << fixed << setprecision(2) << pool.area << " squared feet" << endl;
+			outputFile << "TOTAL POOL AREA:               " << fixed << setprecision(2) << pool.area << " squared feet" << endl;
 
 			pool.volume = calculateVolume(pool.length, pool.width, pool.shallowEnd, pool.deepEnd);
-			outputFile << "TOTAL GALLONS OF WATER:     " << fixed << setprecision(2) << pool.volume << " gallons per cubic feet" << endl;
+			outputFile << "TOTAL GALLONS OF WATER:        " << fixed << setprecision(2) << pool.volume << " gallons per cubic feet" << endl;
 		}
 		else {
-			outputFile << "TOTAL POOL AREA:            " << "Unable to compute due to incomplete data" << endl;
-			outputFile << "TOTAL GALLONS OF WATER:     " << "Unable to compute due to incomplete data" << endl;
+			outputFile << "TOTAL POOL AREA:               " << "Unable to compute due to incomplete data" << endl;
+			outputFile << "TOTAL GALLONS OF WATER:        " << "Unable to compute due to incomplete data" << endl;
 		}
 
 		// Calculate time to paint area
 		if ( pool.area > 0 ) {
 			pool = calculatePoolTime("area", pool);
-			outputFile << "TIME REQUIRED FOR PAINTING: " << pool.days << " days, " << pool.hours << " hours, and " << pool.minutes << " minutes" << endl;
+			outputFile << "TIME REQUIRED FOR PAINTING:    " << pool.days << " days, " << pool.hours << " hours, and " << pool.minutes << " minutes" << endl;
 		}
 		else {
-			outputFile << "TIME REQUIRED FOR PAINTING: " << "Unable to compute due to incomplete data" << endl;
+			outputFile << "TIME REQUIRED FOR PAINTING:    " << "Unable to compute due to incomplete data" << endl;
 		}
+		
+		
 
 		// Calculate time to fill pool
 		if( pool.volume > 0 ) {
 			pool = calculatePoolTime("volume", pool);
-			outputFile << "TIME REQUIRED TO FILL POOL: " << pool.days << " days, " << pool.hours << " hours, and " << pool.minutes << " minutes" << endl;
+			outputFile << "TIME REQUIRED TO FILL POOL:    " << pool.days << " days, " << pool.hours << " hours, and " << pool.minutes << " minutes" << endl;
 		}
 		else {
-			outputFile << "TIME REQUIRED TO FILL POOL: " << "Unable to compute due to incomplete data" << endl;
+			outputFile << "TIME REQUIRED TO FILL POOL:    " << "Unable to compute due to incomplete data" << endl;
 		}
 
 		// Print the line
 		printPoolInfo(pool);
 		j++;
 
+		
+
+	
+
+		timeToPaint = pool.area / 1200; 
+		timeToFill = pool.volume / 12000; 
+		totalTime = (((timeToPaint * 24) + (timeToFill * 24) + 8) *60 ) * 60; 
+		
+		time_t hold_time;
+		//hold_time=1427860800 + totalTime;	//cout<<hold_time; //cout<<"The date is: "<<ctime(&hold_time);
+		hold_time = 1427889600;
+
+		//outputFile << "THE POOL WILL BE COMPLETED ON: " << ctime(&hold_time) << endl;
+		outputFile << "START FROM THIS DATE:          " << ctime(&hold_time) << endl;
 		outputFile << "\n\n\n";
+
     }
 
     // Close the files
@@ -160,4 +188,6 @@ int main(int argc, char** argv)
 	getchar();
 
 	return 0;
+
+	system("pause");
 }

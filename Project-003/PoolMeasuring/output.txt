@@ -1,50 +1,72 @@
 OUTPUT OF POOLMEASURING PROGRAM
 
-CUSTOMER:                   Michael Phelps
-TOTAL POOL AREA:            17387.00 feet
-TOTAL GALLONS OF WATER:     754432.00 gallons per cubic feet
-TIME REQUIRED FOR PAINTING: 65 days, 4 hours, and 48 minutes
-TIME REQUIRED TO FILL POOL: 2829 days, 2 hours, and 1 minutes
+CUSTOMER:                      Michael Phelps
+TOTAL POOL AREA:               17388.00 squared feet
+TOTAL GALLONS OF WATER:        754432.80 gallons per cubic feet
+TIME REQUIRED FOR PAINTING:    65 days, 4 hours, and 54 minutes
+TIME REQUIRED TO FILL POOL:    2829 days, 2 hours, and 6 minutes
+START FROM THIS DATE:          Wed Apr 01 08:00:00 2015
 
 
 
-CUSTOMER:                   Gabe Newell
-TOTAL POOL AREA:            663.00 feet
-TOTAL GALLONS OF WATER:     10771.00 gallons per cubic feet
-TIME REQUIRED FOR PAINTING: 2 days, 11 hours, and 40 minutes
-TIME REQUIRED TO FILL POOL: 40 days, 9 hours, and 22 minutes
+
+CUSTOMER:                      Gabe Newell
+TOTAL POOL AREA:               663.39 squared feet
+TOTAL GALLONS OF WATER:        10771.20 gallons per cubic feet
+TIME REQUIRED FOR PAINTING:    2 days, 11 hours, and 42 minutes
+TIME REQUIRED TO FILL POOL:    40 days, 9 hours, and 23 minutes
+START FROM THIS DATE:          Wed Apr 01 08:00:00 2015
 
 
 
-CUSTOMER:                   Frank Sinatra
-TOTAL POOL AREA:            693.00 feet
-TOTAL GALLONS OF WATER:     9424.00 gallons per cubic feet
-TIME REQUIRED FOR PAINTING: 2 days, 14 hours, and 22 minutes
-TIME REQUIRED TO FILL POOL: 35 days, 8 hours, and 8 minutes
+
+CUSTOMER:                      Frank Sinatra
+TOTAL POOL AREA:               693.90 squared feet
+TOTAL GALLONS OF WATER:        9424.80 gallons per cubic feet
+TIME REQUIRED FOR PAINTING:    2 days, 14 hours, and 26 minutes
+TIME REQUIRED TO FILL POOL:    35 days, 8 hours, and 13 minutes
+START FROM THIS DATE:          Wed Apr 01 08:00:00 2015
 
 
 
-CUSTOMER:                   Barack Obama
-TOTAL POOL AREA:            Unable to compute due to incomplete data
-TOTAL GALLONS OF WATER:     Unable to compute due to incomplete data
-TIME REQUIRED FOR PAINTING: Unable to compute due to incomplete data
-TIME REQUIRED TO FILL POOL: Unable to compute due to incomplete data
+
+CUSTOMER:                      Barack Obama
+TOTAL POOL AREA:               Unable to compute due to incomplete data
+TOTAL GALLONS OF WATER:        Unable to compute due to incomplete data
+TIME REQUIRED FOR PAINTING:    Unable to compute due to incomplete data
+TIME REQUIRED TO FILL POOL:    Unable to compute due to incomplete data
+START FROM THIS DATE:          Wed Apr 01 08:00:00 2015
 
 
 
-CUSTOMER:                   Error Man
-TOTAL POOL AREA:            Unable to compute due to incomplete data
-TOTAL GALLONS OF WATER:     Unable to compute due to incomplete data
-TIME REQUIRED FOR PAINTING: Unable to compute due to incomplete data
-TIME REQUIRED TO FILL POOL: Unable to compute due to incomplete data
+
+CUSTOMER:                      Error Man
+TOTAL POOL AREA:               Unable to compute due to incomplete data
+TOTAL GALLONS OF WATER:        Unable to compute due to incomplete data
+TIME REQUIRED FOR PAINTING:    Unable to compute due to incomplete data
+TIME REQUIRED TO FILL POOL:    Unable to compute due to incomplete data
+START FROM THIS DATE:          Wed Apr 01 08:00:00 2015
 
 
 
-CUSTOMER:                   n/a
-TOTAL POOL AREA:            Unable to compute due to incomplete data
-TOTAL GALLONS OF WATER:     Unable to compute due to incomplete data
-TIME REQUIRED FOR PAINTING: Unable to compute due to incomplete data
-TIME REQUIRED TO FILL POOL: Unable to compute due to incomplete data
+
+CUSTOMER:                      Oracle
+TOTAL POOL AREA:               11.24 squared feet
+TOTAL GALLONS OF WATER:        14.96 gallons per cubic feet
+TIME REQUIRED FOR PAINTING:    0 days, 1 hours, and 0 minutes
+TIME REQUIRED TO FILL POOL:    0 days, 1 hours, and 20 minutes
+START FROM THIS DATE:          Wed Apr 01 08:00:00 2015
+
+
+
+
+CUSTOMER:                      Morpheus
+TOTAL POOL AREA:               367.87 squared feet
+TOTAL GALLONS OF WATER:        4039.20 gallons per cubic feet
+TIME REQUIRED FOR PAINTING:    1 days, 9 hours, and 6 minutes
+TIME REQUIRED TO FILL POOL:    15 days, 3 hours, and 31 minutes
+START FROM THIS DATE:          Wed Apr 01 08:00:00 2015
+
 
 
 
