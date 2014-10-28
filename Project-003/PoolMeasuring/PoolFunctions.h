@@ -112,6 +112,164 @@ pools_t calculatePoolTime(string var, pools_t pool) {
 	return pool;
 }
 
+pools_t calculatePaintTime( pools_t pool )
+{
+	if ( true )
+	{
+		// This path runs a simulation that computes how long it will take to paint the pool.
+		//		ASSUMPTIONS:		1 worker painting alone can paint 100 sq ft in one hour.			paintRate = 100 sq ft;
+		//							Both workers working together can paint 200 sq ft in one hour.		paintRateTogether = paintRate * 2;
+
+		// Variables Needed
+		double areaLeftToPaint;
+		double paintRate;
+		double paintRateTogether;
+		double paintRateTogether_InSeconds;
+		bool workingTogether;
+		int counter;
+
+		// Set Variables
+		areaLeftToPaint = pool.area;
+		paintRate = 100;						//		100 sq ft per hour
+		paintRateTogether = paintRate * 2;		//		200 sq ft per hour
+		paintRateTogether_InSeconds = 18;		//		1/200 * 3600 = 18
+		workingTogether = true;
+		counter = 0;
+
+		while ( areaLeftToPaint > 0 )	// The pool is not done being painted
+		{
+			if ( areaLeftToPaint < paintRateTogether)
+			{
+				// This is the final hour of painting
+				pool.minutes = areaLeftToPaint * paintRateTogether_InSeconds;
+				pool.minutes /= 60;
+				areaLeftToPaint -= areaLeftToPaint;
+			}
+			else if ( !workingTogether && (areaLeftToPaint < paintRate))
+			{
+				// This is the final hour of filling
+				pool.minutes = areaLeftToPaint * (paintRateTogether_InSeconds / 2);
+				pool.minutes /= 60;
+				areaLeftToPaint -= areaLeftToPaint;
+			}
+			else
+			{
+				if ( workingTogether )		
+				{
+					// Early Morning
+					areaLeftToPaint -= paintRateTogether;
+				}
+				else	
+				{
+					// Afternoon
+					areaLeftToPaint -= paintRate;
+				}
+
+				counter++;
+
+				if ( counter >= 4 )
+				{
+					workingTogether = !workingTogether;
+					counter = 0;
+				}
+
+				pool.hours++;
+
+				// cout << areaLeftToPaint << endl;
+				// cout << pool.hours << endl;
+			}
+
+			if ( pool.hours >= 8 )
+			{
+				pool.days++;
+				pool.hours = 0;
+			}
+		}
+	}
+
+	return pool;
+}
+
+pools_t calculateFillTime( pools_t pool )
+{
+	if ( true )
+	{
+		// This path runs a simulation that computes how long it will take to fill the pool.
+		//		ASSUMPTIONS:		1 hose filling painting alone can provide 1000 cubic gallons in one hour.	fillRate = 1000 cubic gallons;
+		//							Both hoses filling together can provide 2000 cubic gallons in one hour.		fillRateTogether = paintRate * 2;
+
+		// Variables Needed
+		double areaLeftToFill;
+		double fillRate;
+		double fillRateTogether;
+		double fillRateTogether_InSeconds;
+		bool workingTogether;
+		int counter;
+
+		// Set Variables
+		areaLeftToFill = pool.volume;
+		fillRate = 1000;						//		1000 cubic gallons per hour
+		fillRateTogether = fillRate * 2;		//		2000 cubic gallons per hour
+		fillRateTogether_InSeconds = 1.8;		//		1/200 * 3600 = 18
+		workingTogether = true;
+		counter = 0;
+		pool.days = 0;
+		pool.hours = 0;
+		pool.minutes = 0;
+
+		while ( areaLeftToFill > 0 )	// The pool is not done being filled
+		{
+			cout << areaLeftToFill << "   " << pool.days << "   " << pool.hours << "   " << pool.minutes << endl;
+
+			if ( workingTogether && (areaLeftToFill < fillRateTogether))
+			{
+				// This is the final hour of filling
+				pool.minutes = areaLeftToFill * fillRateTogether_InSeconds;
+				pool.minutes /= 60;
+				areaLeftToFill -= areaLeftToFill;
+			}
+			else if ( !workingTogether && (areaLeftToFill < fillRate))
+			{
+				// This is the final hour of filling
+				pool.minutes = areaLeftToFill * (fillRateTogether_InSeconds / 2);
+				pool.minutes /= 60;
+				areaLeftToFill -= areaLeftToFill;
+			}
+			else
+			{
+				if ( workingTogether )		
+				{
+					// Early Morning
+					areaLeftToFill -= fillRateTogether;
+				}
+				else	
+				{
+					// Afternoon
+					areaLeftToFill -= fillRate;
+				}
+
+				counter++;
+
+				if ( counter >= 4 )
+				{
+					workingTogether = !workingTogether;
+					counter = 0;
+				}
+
+				pool.hours++;
+			}
+
+			if ( pool.hours >= 8 )
+			{
+				pool.days++;
+				pool.hours = 0;
+			}
+		}
+	}
+
+	return pool;
+}
+
 void printPoolInfo(pools_t pool) {
 	cout << 
 		"LENGTH: " << pool.length << 

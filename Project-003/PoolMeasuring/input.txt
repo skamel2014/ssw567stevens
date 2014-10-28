@@ -1,7 +1,4 @@
-164 82 6 10 Michael Phelps
-20 12 4 9 Gabe Newell
-30 7 4 9 Frank Sinatra
--70 -40 -3.2 -15 Barack Obama
-KK 4 2 7 Error Man
 2 1 1 2 Oracle
 15 6 4 9 Morpheus
+50 13 5 15 Neo
+124 35 6 10 Michael Phelps

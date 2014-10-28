@@ -41,18 +41,23 @@ int main(int argc, char** argv)
 	double timeToPaint;
 	double timeToFill;
 	double totalTime;
-
+	ifstream inputTextFile;
+	ofstream outputFile;
 	pools_t pool;
 
 	
-
-	// Find a file
-    ifstream inputTextFile;
-    inputTextFile.open ("input.txt");
-
-	// Make an output file
-	ofstream outputFile;
-	outputFile.open ("output.txt");
+	// Check for command line input
+	if ( argc == 1 )
+	{
+		inputTextFile.open ("input.txt");
+		outputFile.open ("output.txt");
+	}
+	else
+	{
+		//inputTextFile.open ( argv[1] );
+		cout << argv[0] << argv[1] << endl;
+		return 0;
+	}
 
 	outputFile << "OUTPUT OF POOLMEASURING PROGRAM" << endl << endl;
 
@@ -137,12 +142,19 @@ int main(int argc, char** argv)
 			outputFile << "TOTAL GALLONS OF WATER:        " << "Unable to compute due to incomplete data" << endl;
 		}
 
+		// Temporary variable for saving
+		int paintDays;
+
 		// Calculate time to paint area
-		if ( pool.area > 0 ) {
-			pool = calculatePoolTime("area", pool);
+		if ( pool.area > 0 ) 
+		{
+			// pool = calculatePoolTime("area", pool);		CURRENT VERSION OF CODE
+			pool = calculatePaintTime( pool );
+			paintDays = pool.days;
 			outputFile << "TIME REQUIRED FOR PAINTING:    " << pool.days << " days, " << pool.hours << " hours, and " << pool.minutes << " minutes" << endl;
 		}
-		else {
+		else 
+		{
 			outputFile << "TIME REQUIRED FOR PAINTING:    " << "Unable to compute due to incomplete data" << endl;
 		}
 		
@@ -150,7 +162,7 @@ int main(int argc, char** argv)
 
 		// Calculate time to fill pool
 		if( pool.volume > 0 ) {
-			pool = calculatePoolTime("volume", pool);
+			pool = calculateFillTime( pool );
 			outputFile << "TIME REQUIRED TO FILL POOL:    " << pool.days << " days, " << pool.hours << " hours, and " << pool.minutes << " minutes" << endl;
 		}
 		else {
@@ -164,17 +176,18 @@ int main(int argc, char** argv)
 		
 
 	
-
+		/*
 		timeToPaint = pool.area / 1200; 
 		timeToFill = pool.volume / 12000; 
 		totalTime = (((timeToPaint * 24) + (timeToFill * 24) + 8) *60 ) * 60; 
+		*/
 		
 		time_t hold_time;
 		//hold_time=1427860800 + totalTime;	//cout<<hold_time; //cout<<"The date is: "<<ctime(&hold_time);
-		hold_time = 1427889600;
+		hold_time = 1427889600 + (86400 * (paintDays + 1)) + (86400 * pool.days) + (3600 * pool.hours) + (60 * pool.minutes);
 
 		//outputFile << "THE POOL WILL BE COMPLETED ON: " << ctime(&hold_time) << endl;
-		outputFile << "START FROM THIS DATE:          " << ctime(&hold_time) << endl;
+		outputFile << "POOL WILL BE COMPLETED ON:     " << ctime(&hold_time) << endl;
 		outputFile << "\n\n\n";
 
     }
