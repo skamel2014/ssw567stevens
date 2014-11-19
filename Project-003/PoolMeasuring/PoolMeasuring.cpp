@@ -76,21 +76,38 @@ int main(int argc, char** argv)
 		tempShallowEnd.clear();
 		tempDeepEnd.clear();
 		pool = initializePool(pool);
+		bool validPool = true;
 		
 		// LENGTH
 		tempLength = FindValue(linePosPTR, lineToPrint);
+		if(tempLength.length() > 3) {
+			tempLength = "n/a";
+		}
+
 		// cout << "Temporary Length: " << tempLength << endl;
 		
 		// WIDTH
 		tempWidth = FindValue( linePosPTR, lineToPrint );
+		if(tempWidth.length() > 3) {
+			tempWidth = "n/a";
+		}
+
 		// cout << "Temporary Width: " << tempWidth << endl;
 
 		// SHALLOW END
 		tempShallowEnd = FindValue(linePosPTR, lineToPrint);
+		if(tempShallowEnd.length() > 3) {
+			tempShallowEnd = "n/a";
+		}
+
 		// cout << "Temporary Shallow End: " << tempShallowEnd << endl;
 		
 		// DEEP END
 		tempDeepEnd = FindValue( linePosPTR, lineToPrint );
+		if(tempDeepEnd.length() > 3) {
+			tempDeepEnd = "n/a";
+		}
+
 		// cout << "Temporary Deep End: " << tempDeepEnd << endl;
 
 		// CUSTOMER
@@ -140,10 +157,16 @@ int main(int argc, char** argv)
 		else {
 			outputFile << "TOTAL POOL AREA:               " << "Unable to compute due to incomplete data" << endl;
 			outputFile << "TOTAL GALLONS OF WATER:        " << "Unable to compute due to incomplete data" << endl;
+			validPool = false;
 		}
 
 		// Temporary variable for saving
-		int paintDays;
+
+		/*
+		*	Bug #1 - Initialized paintDays to 0.
+		*/
+
+		int paintDays = 0;
 
 		// Calculate time to paint area
 		if ( pool.area > 0 ) 
@@ -156,6 +179,7 @@ int main(int argc, char** argv)
 		else 
 		{
 			outputFile << "TIME REQUIRED FOR PAINTING:    " << "Unable to compute due to incomplete data" << endl;
+			validPool = false;
 		}
 		
 		
@@ -167,6 +191,7 @@ int main(int argc, char** argv)
 		}
 		else {
 			outputFile << "TIME REQUIRED TO FILL POOL:    " << "Unable to compute due to incomplete data" << endl;
+			validPool = false;
 		}
 
 		// Print the line
@@ -186,9 +211,15 @@ int main(int argc, char** argv)
 		//hold_time=1427860800 + totalTime;	//cout<<hold_time; //cout<<"The date is: "<<ctime(&hold_time);
 		hold_time = 1427889600 + (86400 * (paintDays + 1)) + (86400 * pool.days) + (3600 * pool.hours) + (60 * pool.minutes);
 
-		//outputFile << "THE POOL WILL BE COMPLETED ON: " << ctime(&hold_time) << endl;
-		outputFile << "POOL WILL BE COMPLETED ON:     " << ctime(&hold_time) << endl;
-		outputFile << "\n\n\n";
+		if(validPool) {
+			//outputFile << "THE POOL WILL BE COMPLETED ON: " << ctime(&hold_time) << endl;
+			outputFile << "POOL WILL BE COMPLETED ON:     " << ctime(&hold_time) << endl;
+			outputFile << "\n\n\n";
+		}
+		else {
+			outputFile << "POOL WILL BE COMPLETED ON:     POOL TIME CANNOT BE ESTIMATED." << endl;
+			outputFile << "\n\n\n";
+		}
 
     }
 

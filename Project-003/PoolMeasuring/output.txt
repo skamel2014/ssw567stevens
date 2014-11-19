@@ -1,42 +1,94 @@
 OUTPUT OF POOLMEASURING PROGRAM
 
-CUSTOMER:                      Oracle
-TOTAL POOL AREA:               11.24 squared feet
-TOTAL GALLONS OF WATER:        14.96 gallons per cubic feet
-TIME REQUIRED FOR PAINTING:    0 days, 0 hours, and 3 minutes
-TIME REQUIRED TO FILL POOL:    0 days, 0 hours, and 0 minutes
-POOL WILL BE COMPLETED ON:     Thu Apr 02 08:00:00 2015
+CUSTOMER:                      zero
+TOTAL POOL AREA:               217.74 squared feet
+TOTAL GALLONS OF WATER:        1077.12 gallons per cubic feet
+TIME REQUIRED FOR PAINTING:    0 days, 1 hours, and 5 minutes
+TIME REQUIRED TO FILL POOL:    0 days, 0 hours, and 32 minutes
+POOL WILL BE COMPLETED ON:     Thu Apr 02 08:32:00 2015
 
 
 
 
-CUSTOMER:                      Morpheus
-TOTAL POOL AREA:               367.87 squared feet
-TOTAL GALLONS OF WATER:        4039.20 gallons per cubic feet
-TIME REQUIRED FOR PAINTING:    0 days, 1 hours, and 50 minutes
-TIME REQUIRED TO FILL POOL:    0 days, 2 hours, and 1 minutes
-POOL WILL BE COMPLETED ON:     Thu Apr 02 10:01:00 2015
+CUSTOMER:                      invalidCharacter
+TOTAL POOL AREA:               Unable to compute due to incomplete data
+TOTAL GALLONS OF WATER:        Unable to compute due to incomplete data
+TIME REQUIRED FOR PAINTING:    Unable to compute due to incomplete data
+TIME REQUIRED TO FILL POOL:    Unable to compute due to incomplete data
+POOL WILL BE COMPLETED ON:     POOL TIME CANNOT BE ESTIMATED.
+
+
+
+CUSTOMER:                       invalidCharacter
+TOTAL POOL AREA:               Unable to compute due to incomplete data
+TOTAL GALLONS OF WATER:        Unable to compute due to incomplete data
+TIME REQUIRED FOR PAINTING:    Unable to compute due to incomplete data
+TIME REQUIRED TO FILL POOL:    Unable to compute due to incomplete data
+POOL WILL BE COMPLETED ON:     POOL TIME CANNOT BE ESTIMATED.
+
+
+
+CUSTOMER:                      not-rectangular
+TOTAL POOL AREA:               125.00 squared feet
+TOTAL GALLONS OF WATER:        841.50 gallons per cubic feet
+TIME REQUIRED FOR PAINTING:    0 days, 0 hours, and 37 minutes
+TIME REQUIRED TO FILL POOL:    0 days, 0 hours, and 25 minutes
+POOL WILL BE COMPLETED ON:     Thu Apr 02 08:25:00 2015
 
 
 
 
-CUSTOMER:                      Neo
-TOTAL POOL AREA:               1922.87 squared feet
-TOTAL GALLONS OF WATER:        46189.00 gallons per cubic feet
-TIME REQUIRED FOR PAINTING:    1 days, 3 hours, and 36 minutes
-TIME REQUIRED TO FILL POOL:    3 days, 6 hours, and 2 minutes
-POOL WILL BE COMPLETED ON:     Mon Apr 06 14:02:00 2015
+CUSTOMER:                      width>length
+TOTAL POOL AREA:               Unable to compute due to incomplete data
+TOTAL GALLONS OF WATER:        Unable to compute due to incomplete data
+TIME REQUIRED FOR PAINTING:    Unable to compute due to incomplete data
+TIME REQUIRED TO FILL POOL:    Unable to compute due to incomplete data
+POOL WILL BE COMPLETED ON:     POOL TIME CANNOT BE ESTIMATED.
 
 
 
+CUSTOMER:                      shallow>deep
+TOTAL POOL AREA:               Unable to compute due to incomplete data
+TOTAL GALLONS OF WATER:        Unable to compute due to incomplete data
+TIME REQUIRED FOR PAINTING:    Unable to compute due to incomplete data
+TIME REQUIRED TO FILL POOL:    Unable to compute due to incomplete data
+POOL WILL BE COMPLETED ON:     POOL TIME CANNOT BE ESTIMATED.
 
-CUSTOMER:                      Michael Phelps
-TOTAL POOL AREA:               6886.26 squared feet
-TOTAL GALLONS OF WATER:        243474.00 gallons per cubic feet
-TIME REQUIRED FOR PAINTING:    5 days, 4 hours, and 25 minutes
-TIME REQUIRED TO FILL POOL:    20 days, 1 hours, and 44 minutes
-POOL WILL BE COMPLETED ON:     Mon Apr 27 09:44:00 2015
 
+
+CUSTOMER:                      veryBigNumber
+TOTAL POOL AREA:               Unable to compute due to incomplete data
+TOTAL GALLONS OF WATER:        Unable to compute due to incomplete data
+TIME REQUIRED FOR PAINTING:    Unable to compute due to incomplete data
+TIME REQUIRED TO FILL POOL:    Unable to compute due to incomplete data
+POOL WILL BE COMPLETED ON:     POOL TIME CANNOT BE ESTIMATED.
+
+
+
+CUSTOMER:                      veryBigNumber
+TOTAL POOL AREA:               Unable to compute due to incomplete data
+TOTAL GALLONS OF WATER:        Unable to compute due to incomplete data
+TIME REQUIRED FOR PAINTING:    Unable to compute due to incomplete data
+TIME REQUIRED TO FILL POOL:    Unable to compute due to incomplete data
+POOL WILL BE COMPLETED ON:     POOL TIME CANNOT BE ESTIMATED.
+
+
+
+CUSTOMER:                      floatNumber
+TOTAL POOL AREA:               Unable to compute due to incomplete data
+TOTAL GALLONS OF WATER:        Unable to compute due to incomplete data
+TIME REQUIRED FOR PAINTING:    Unable to compute due to incomplete data
+TIME REQUIRED TO FILL POOL:    Unable to compute due to incomplete data
+POOL WILL BE COMPLETED ON:     POOL TIME CANNOT BE ESTIMATED.
+
+
+
+CUSTOMER:                      negativeValue
+TOTAL POOL AREA:               Unable to compute due to incomplete data
+TOTAL GALLONS OF WATER:        Unable to compute due to incomplete data
+TIME REQUIRED FOR PAINTING:    Unable to compute due to incomplete data
+TIME REQUIRED TO FILL POOL:    Unable to compute due to incomplete data
+POOL WILL BE COMPLETED ON:     POOL TIME CANNOT BE ESTIMATED.
 
 
 

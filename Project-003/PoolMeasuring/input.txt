@@ -1,4 +1,10 @@
-2 1 1 2 Oracle
-15 6 4 9 Morpheus
-50 13 5 15 Neo
-124 35 6 10 Michael Phelps
+16 2 0 10 zero
+12 2 10 1z invalidCharacter
+12 6 . 5  invalidCharacter
+5 5 5 5 not-rectangular
+8 20 2 10 width>length
+12 8 20 10 shallow>deep
+1326888 10 7 20 veryBigNumber
+20 10 7 13268888888 veryBigNumber
+12 5 2.5 5 floatNumber
+16 12 -1 10 negativeValue
